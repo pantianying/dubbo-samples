@@ -18,6 +18,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"os/signal"
@@ -32,7 +33,7 @@ import (
 	"github.com/apache/dubbo-go/protocol/dubbo"
 	_ "github.com/apache/dubbo-go/registry/protocol"
 
-	_ "github.com/apache/dubbo-go/filter/impl"
+	_ "github.com/apache/dubbo-go/filter/filter_impl"
 
 	_ "github.com/apache/dubbo-go/cluster/cluster_impl"
 	_ "github.com/apache/dubbo-go/cluster/loadbalance"
@@ -95,7 +96,7 @@ func test() {
 
 	time.Sleep(3 * time.Second)
 	println("\n\n\nstart to generic invoke")
-	resp, err := referenceConfig.GetRPCService().(*config.GenericService).Invoke([]interface{}{"GetUser", []string{"java.lang.String"}, []interface{}{"A003"}})
+	resp, err := referenceConfig.GetRPCService().(*config.GenericService).Invoke(context.TODO(), []interface{}{"GetUser", []string{"java.lang.String"}, []interface{}{"A003"}})
 	if err != nil {
 		panic(err)
 	}
@@ -121,9 +122,8 @@ func test2() {
 		Name: "panty",
 		Age:  25,
 		Time: time.Now(),
-		Sex:  Gender(MAN),
 	}
-	resp, err := referenceConfig.GetRPCService().(*config.GenericService).Invoke([]interface{}{"queryUser", []string{"com.ikurento.user.User"}, []interface{}{user}})
+	resp, err := referenceConfig.GetRPCService().(*config.GenericService).Invoke(context.TODO(), []interface{}{"queryUser", []string{"com.ikurento.user.User"}, []interface{}{user}})
 	if err != nil {
 		panic(err)
 	}
