@@ -26,6 +26,12 @@ import (
 )
 
 import (
+	_ "github.com/alibaba/sentinel-golang/adapter/dubbo"
+	sentinel "github.com/alibaba/sentinel-golang/api"
+	"github.com/alibaba/sentinel-golang/core/flow"
+)
+
+import (
 	hessian "github.com/apache/dubbo-go-hessian2"
 	"github.com/apache/dubbo-go/common/logger"
 	"github.com/apache/dubbo-go/config"
@@ -38,12 +44,6 @@ import (
 	_ "github.com/apache/dubbo-go/cluster/cluster_impl"
 	_ "github.com/apache/dubbo-go/cluster/loadbalance"
 	_ "github.com/apache/dubbo-go/registry/zookeeper"
-)
-
-import (
-	_ "github.com/alibaba/sentinel-golang/adapter/dubbo"
-	sentinel "github.com/alibaba/sentinel-golang/api"
-	"github.com/alibaba/sentinel-golang/core/flow"
 )
 
 var (

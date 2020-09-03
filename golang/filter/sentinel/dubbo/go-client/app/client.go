@@ -45,6 +45,7 @@ import (
 	_ "github.com/alibaba/sentinel-golang/adapter/dubbo"
 	sentinel "github.com/alibaba/sentinel-golang/api"
 	"github.com/alibaba/sentinel-golang/core/flow"
+	log "github.com/dubbogo/gost/log"
 )
 
 var (
@@ -114,5 +115,5 @@ func initSignal() {
 }
 
 func println(format string, args ...interface{}) {
-	fmt.Printf("\033[32;40m"+format+"\033[0m\n", args...)
+	log.CInfo("\033[32;40m"+format+"\033[0m\n", args...)
 }

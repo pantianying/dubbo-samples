@@ -5,6 +5,7 @@ require (
 	github.com/apache/dubbo-go v1.5.1-0.20200821144431-0b81ef4d7a89
 	github.com/apache/dubbo-go-hessian2 v1.6.2
 	github.com/codahale/hdrhistogram v0.0.0-20161010025455-3a0bb77429bd // indirect
+	github.com/dubbogo/gost v1.9.2
 	github.com/emicklei/go-restful/v3 v3.0.0
 	github.com/golang/protobuf v1.3.2
 	github.com/opentracing/opentracing-go v1.1.0

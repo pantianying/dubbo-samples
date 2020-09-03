@@ -19,7 +19,7 @@ package main
 
 import (
 	"context"
-	"fmt"
+	log "github.com/dubbogo/gost/log"
 	"time"
 )
 
@@ -60,5 +60,5 @@ func (u User) JavaClassName() string {
 }
 
 func println(format string, args ...interface{}) {
-	fmt.Printf("\033[32;40m"+format+"\033[0m\n", args...)
+	log.CInfo("\033[32;40m"+format+"\033[0m\n", args...)
 }
